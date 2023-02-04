@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/splashscreen.rpy", line 6: invalid syntax
-    splash_message_default = centered "This game is intended for mature audiences.\nPlease Play At Your Own Risk."
-                                       ^
-    
+File "game/script.rpy", line 129: expected menuitem
+    if(playerGender == "Male"):
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Feb  4 15:03:08 2023
+Sat Feb  4 17:35:07 2023
