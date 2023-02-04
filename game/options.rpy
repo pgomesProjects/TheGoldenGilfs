@@ -29,8 +29,7 @@ define config.version = "1.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""
-""")
+define gui.about = _("Created By Taylor\n\nProgramming - P. Gomes\nUI Design - P. Gomes\nCharacter Art - Taylor\nNarrative Design - Ari\nNarrative Design - Anthony")
 
 
 ## A short name for the game used for executables and directories in the built
@@ -62,7 +61,7 @@ define config.has_voice = False
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/music/main_menu.mp3"
 
 
 ## Transitions #################################################################

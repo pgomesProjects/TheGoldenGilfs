@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 8: Menu does not contain any choices.
-    menu:
-         ^
+File "game/options.rpy", line 64: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation.
+    define config.main_menu_music = "audio/music/main_menu.mp3"
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Feb  3 16:52:36 2023
+Sat Feb  4 04:29:37 2023

@@ -1,56 +1,55 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-Compiling ATL code at game/definitions.rpy:9
-  File "game/script.rpy", line 16, in script call
-    call rightAnswer
-  File "game/script.rpy", line 22, in script
-    show placeholder
-  File "game/definitions.rpy", line 11, in <module>
-    (0,0), im.MatrixColor("actors/placeholder/placeholder_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
-NameError: name 'huer' is not defined
+While processing the color property of anonymous style:
+  File "game/script.rpy", line 18, in script
+    menu:
+Exception: Color string '#2DC57B' must be 3, 4, 6, or 8 hex digits long.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 16, in script call
-    call rightAnswer
-  File "game/script.rpy", line 22, in script
-    show placeholder
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
-    renpy.config.show(name,
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\exports.py", line 712, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 1165, in add
-    thing.visit_all(lambda d : None)
+  File "game/script.rpy", line 18, in script
+    menu:
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\ast.py", line 1903, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\exports.py", line 1010, in menu
+    rv = renpy.store.menu(new_items)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\exports.py", line 1250, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
   File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
     d.visit_all(callback, seen)
   File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
     d.visit_all(callback, seen)
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 572, in visit_all
-    for d in self.visit():
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\atl.py", line 614, in visit
-    block = self.compile()
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\atl.py", line 521, in compile
-    block = self.atl.compile(self.context)
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\atl.py", line 721, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\atl.py", line 721, in <listcomp>
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\atl.py", line 969, in compile
-    child = ctx.eval(expr)
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\atl.py", line 259, in eval
-    return renpy.python.py_eval(expr, locals=self.context)
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/definitions.rpy", line 11, in <module>
-    (0,0), im.MatrixColor("actors/placeholder/placeholder_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
-NameError: name 'huer' is not defined
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\screen.py", line 456, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 584, in visit_all
+    callback(self)
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\text\text.py", line 1741, in per_interact
+    if self.style.slow_abortable:
+  File "gen3-static/styleclass.pxi", line 533, in renpy.styledata.styleclass.Style.slow_abortable.__get__
+  File "style.pyx", line 493, in renpy.style.StyleCore._get
+  File "style.pyx", line 710, in renpy.style.build_style
+  File "style.pyx", line 707, in renpy.style.build_style
+  File "gen3-static/style_functions.pyx", line 323, in style_functions.color_property
+  File "C:\Program Files (x86)\renpy-8.0.3-sdk\renpy\color.py", line 167, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string '#2DC57B' must be 3, 4, 6, or 8 hex digits long.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 The Golden Gilfs 1.0
-Fri Feb  3 17:08:10 2023
+Sat Feb  4 03:57:15 2023

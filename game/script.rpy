@@ -3,13 +3,20 @@
 
 label start:
 
+    #Stops main menu music with a fade
+    $renpy.music.stop(fadeout = 1.0)
+
     scene empty background
 
     #Define Names
-    $ player = "Player"
     $ placeholder_name = "Your Dream Grandma"
 
-    mc "This is {i}The Golden Gilfs.{/i}"
+    if(playerGender == "Male"):
+        $ surname = "Mr."
+    elif(playerGender == "Female"):
+        $ surname = "Ms."
+
+    mc "I am [surname] [playerName] and this is {i}The Golden Gilfs.{/i}"
 
     menu:
         tut "Do you want to see hot grandmas in your area?"

@@ -257,14 +257,11 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Options") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -293,6 +290,17 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
+init python:
+    def FinishEnterName():
+        if not playerName: return
+        renpy.hide_screen("name_input")
+        renpy.show_screen("gender_input",  message="Please Choose Your Gender", ok_action=Function(FinishChooseGender))
+
+    def FinishChooseGender():
+        if not playerGender: return
+        renpy.hide_screen("gender_input")
+        renpy.jump_out_of_context("start")
+
 screen navigation():
 
     vbox:
@@ -305,7 +313,8 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Find My Match!") action Show(screen="name_input", message="Please Enter Your Name", ok_action=Function(FinishEnterName))
+            null height 40
 
         else:
 
@@ -315,7 +324,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Options") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -325,18 +334,13 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+        textbutton _("Credits") action ShowMenu("about")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("Exit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -362,6 +366,7 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
+    add "gui/logo.png" xalign 0.95 yalign 0.75
 
     ## This empty frame darkens the main menu.
     frame:
@@ -370,17 +375,6 @@ screen main_menu():
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
     use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -554,7 +548,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("Credits"), scroll="viewport"):
 
         style_prefix "about"
 
@@ -567,7 +561,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            # text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
@@ -720,7 +714,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Options"), scroll="viewport"):
 
         vbox:
 
@@ -875,6 +869,9 @@ style slider_vbox:
 ## dialogue history stored in _history_list.
 ##
 ## https://www.renpy.org/doc/html/history.html
+
+style historyText:
+    font "fonts/Typewriter.ttf"
 
 screen history():
 
@@ -1132,6 +1129,84 @@ style help_label_text:
 ## question.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#confirm
+
+style inputBox:
+    font "fonts/Arial.ttf"
+    size 45
+
+screen name_input(message, ok_action):
+
+    modal True
+
+    zorder 200
+
+    style_prefix "confirm"
+
+    add "gui/overlay/confirm.png"
+    ##key "K_RETURN" action [Play("sound", gui.activate_sound), ok_action]
+    key "K_RETURN" action ok_action
+
+    frame:
+
+        has vbox:
+            xalign .5
+            yalign .5
+            spacing 30
+
+        label _(message):
+            style "confirm_prompt"
+            xalign 0.5
+
+        input default "" style "inputBox" value VariableInputValue("playerName") length 12 allow "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" xalign 0.5
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("OK") action ok_action
+
+style maleButton:
+    color "#000"
+    hover_color "#106C78"
+    font "fonts/Arial.ttf"
+    size 45
+
+style femaleButton:
+    color "#000"
+    hover_color "#781C10"
+    font "fonts/Arial.ttf"
+    size 45
+
+
+screen gender_input(message, ok_action):
+
+    modal True
+
+    zorder 200
+
+    style_prefix "confirm"
+
+    add "gui/overlay/confirm.png"
+    ##key "K_RETURN" action [Play("sound", gui.activate_sound), ok_action]
+    key "K_RETURN" action ok_action
+
+    frame:
+
+        has vbox:
+            xalign .5
+            yalign .5
+            spacing 30
+
+        label _(message):
+            style "confirm_prompt"
+            xalign 0.5
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("Male") text_style "maleButton" action[ SetVariable("playerGender", "Male"), ok_action]
+            textbutton _("Female") text_style "femaleButton" action[SetVariable("playerGender", "Female"), ok_action]
 
 screen confirm(message, yes_action, no_action):
 

@@ -1,8 +1,8 @@
 define gui.charaters_text_outlines = [ (0, "#00000080", 2, 2) ]
 
-define tut = Character(None, what_color='#59B84F', what_italic=True)
+define tut = Character(None, what_color='#23975F', what_italic=True)
 
-define mc = DynamicCharacter('player', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#DB7093", who_outlines=[ (1, "#000000") ])
+define mc = DynamicCharacter('playerName', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#DB7093", who_outlines=[ (1, "#000000") ])
 define test = DynamicCharacter('placeholder_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#454046", who_outlines=[ (1, "#000000") ])
 
 image placeholder:
@@ -19,3 +19,6 @@ init:
     $ huer = 1.0
     $ hueg = 1.0
     $ hueb = 1.0
+
+default playerName = ""
+default playerGender = "Male"
