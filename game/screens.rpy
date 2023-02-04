@@ -301,7 +301,19 @@ init python:
         renpy.hide_screen("gender_input")
         renpy.jump_out_of_context("start")
 
-screen navigation():
+style mainMenuButton:
+    xysize(527,125)
+    background "gui/button/main_menu_button_idle.png"
+    hover_background "gui/button/main_menu_button_hover.png"
+
+style mainMenuText:
+    xalign 0.1
+    yalign 0.5
+    color "#FFF"
+    font "fonts/Arial.ttf"
+    size 45
+
+screen navigation(titleScreen):
 
     vbox:
         style_prefix "navigation"
@@ -312,9 +324,13 @@ screen navigation():
         spacing gui.navigation_spacing
 
         if main_menu:
-
-            textbutton _("Find My Match!") action Show(screen="name_input", message="Please Enter Your Name", ok_action=Function(FinishEnterName))
-            null height 40
+            if(titleScreen):
+                button style "mainMenuButton" action Show(screen="name_input", message="Please Enter Your Name", ok_action=Function(FinishEnterName)):
+                    text "Find My Match!" style "mainMenuText"
+                null height 20
+            else:
+                textbutton _("Find My Match!") action Show(screen="name_input", message="Please Enter Your Name", ok_action=Function(FinishEnterName))
+                null height 20
 
         else:
 
@@ -374,7 +390,7 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    use navigation(True)
 
 
 style main_menu_frame is empty
@@ -469,7 +485,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
                     transclude
 
-    use navigation
+    use navigation(False)
 
     textbutton _("Return"):
         style "return_button"

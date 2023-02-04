@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 64: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation.
-    define config.main_menu_music = "audio/music/main_menu.mp3"
-    ^
+File "game/splashscreen.rpy", line 6: invalid syntax
+    splash_message_default = centered "This game is intended for mature audiences.\nPlease Play At Your Own Risk."
+                                       ^
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Feb  4 04:29:37 2023
+Sat Feb  4 15:03:08 2023

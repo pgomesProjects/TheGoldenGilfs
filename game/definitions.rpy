@@ -2,7 +2,11 @@ define gui.charaters_text_outlines = [ (0, "#00000080", 2, 2) ]
 
 define tut = Character(None, what_color='#23975F', what_italic=True)
 
-define mc = DynamicCharacter('playerName', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#DB7093", who_outlines=[ (1, "#000000") ])
+define mc = DynamicCharacter('playerName', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#F1FF00", who_outlines=[ (0, "#000000") ])
+define mi = DynamicCharacter('mi_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#903434", who_outlines=[ (0, "#000000") ])
+define hl = DynamicCharacter('hl_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#4F4078", who_outlines=[ (0, "#000000") ])
+define an = DynamicCharacter('an_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#CC9A96", who_outlines=[ (0, "#000000") ])
+
 define test = DynamicCharacter('placeholder_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#454046", who_outlines=[ (1, "#000000") ])
 
 image placeholder:
@@ -14,6 +18,9 @@ image placeholder:
 init:
     #Current emotions
     $ p_emotion = 'neutral'
+    $ mi_emotion = 'neutral'
+    $ hl_emotion = 'neutral'
+    $ an_emotion = 'neutral'
 
     #Hues for images
     $ huer = 1.0
