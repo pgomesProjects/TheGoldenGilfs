@@ -38,12 +38,15 @@ image placeholder:
         (0,0), im.MatrixColor("actors/placeholder/placeholder_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
 
-##Backgrounds
+# Backgrounds
 image bg room = "backgrounds/bedroom.png"
 image bg crafts = "backgrounds/craftsRoom.png"
 image bg game = "backgrounds/gameRoom.png"
 image bg lounge = "backgrounds/communalLounge.png"
 image bg apartment = "backgrounds/apartment.png"
+
+# CGs
+image helenBadCG = "images/helen_bad_end.png"
 
 init:
     #Current emotions

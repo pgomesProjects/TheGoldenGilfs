@@ -23,7 +23,7 @@ label start:
 
     $ seenAnnabelle = False
 
-    call intro from _call_intro
+    call intro
 
     return
 
@@ -62,7 +62,7 @@ label intro:
     "You hope it will be a nice afternoon out."
     "After breakfast, you slip on your orthopedic shoes and head out of your room, to the main area of Sunny Palms."
 
-    call chooseRoute from _call_chooseRoute
+    call chooseRoute
 
     return
 
@@ -71,11 +71,11 @@ label chooseRoute:
         tut "Where would you like to go?"
 
         "Crafts Room":
-            call craftsRoom from _call_craftsRoom
+            call craftsRoom
         "Game Room":
-            call gameRoom from _call_gameRoom
+            call gameRoom
         "Communal Lounge" if seenAnnabelle == False:
-            call communalLounge from _call_communalLounge
+            call communalLounge
 
     return
 
@@ -278,16 +278,16 @@ label craftsRoom:
 
     #Determine the ending
     if(mi_score > 0):
-        call miriam_good from _call_miriam_good
+        call miriam_good
     elif (mi_score < 0):
-        call miriam_bad from _call_miriam_bad
+        call miriam_bad
     #Call a random ending if the score is 0
     else:
         $ chooseEnding = renpy.random.randint(1,2)
         if(chooseEnding == 1):
-            call miriam_good from _call_miriam_good_1
+            call miriam_good
         else:
-            call miriam_bad from _call_miriam_bad_1
+            call miriam_bad
 
     return
 
@@ -492,16 +492,16 @@ label gameRoom:
 
     #Determine the ending
     if(hl_score > 0):
-        call helen_good from _call_helen_good
+        call helen_good
     elif (hl_score < 0):
-        call helen_bad from _call_helen_bad
+        call helen_bad
     #Call a random ending if the score is 0
     else:
         $ chooseEnding = renpy.random.randint(1,2)
         if(chooseEnding == 1):
-            call helen_good from _call_helen_good_1
+            call helen_good
         else:
-            call helen_bad from _call_helen_bad_1
+            call helen_bad
     return
 
 label helen_good:
@@ -582,20 +582,20 @@ label communalLounge:
     hide annabelle
     $ seenAnnabelle = True
 
-    call chooseRoute from _call_chooseRoute_1
+    call chooseRoute
 
     #Determine the ending
     if(an_score > 0):
-        call annabelle_good from _call_annabelle_good
+        call annabelle_good
     elif (an_score < 0):
-        call annabelle_bad from _call_annabelle_bad
+        call annabelle_bad
     #Call a random ending if the score is 0
     else:
         $ chooseEnding = renpy.random.randint(1,2)
         if(chooseEnding == 1):
-            call annabelle_good from _call_annabelle_good_1
+            call annabelle_good
         else:
-            call annabelle_bad from _call_annabelle_bad_1
+            call annabelle_bad
     return
 
 label annabelle_good:
