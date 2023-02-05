@@ -10,12 +10,13 @@ define an = DynamicCharacter('an_name', what_prefix='"', what_suffix='"', ctc="c
 define chatty = DynamicCharacter('chatty_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
 define nosy = DynamicCharacter('nosy_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
 define unremark = DynamicCharacter('unremark_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
+define redhead = DynamicCharacter('redhead_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
 
 define test = DynamicCharacter('placeholder_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#454046", who_outlines=[ (1, "#000000") ])
 
 image miriam:
     LiveComposite(
-        (625,1000),
+        (650,1280),
         (0,0), im.MatrixColor("actors/miriam/miriam_%s.png"%(mi_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
 

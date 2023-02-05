@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 129: expected menuitem
-    if(playerGender == "Male"):
+File "game/script.rpy", line 77: expected menuitem
+    if(!seenAnnabelle):
     ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Feb  4 17:35:07 2023
+Sun Feb  5 13:43:17 2023
