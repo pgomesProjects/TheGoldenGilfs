@@ -24,7 +24,7 @@ label start:
     return
 
 label intro:
-    scene black
+    scene bg room with dissolve
     play music "audio/music/opening_song.mp3" fadein 2.0
     "The morning sun shines in through the blinds in your bedroom window, as it does every morning."
     "It feels a little lonely..."
@@ -71,6 +71,7 @@ label intro:
     return
 
 label craftsRoom:
+    scene bg crafts with dissolve
     play music "audio/music/miriam_theme.mp3" fadein 2.0
     "You decide to head to the crafts room."
     "It's a nice cozy space, with cubbies and bins of various craft supplies."
@@ -243,6 +244,7 @@ label miriam_bad:
     return
 
 label gameRoom:
+    scene bg game with dissolve
     play music "audio/music/helen_theme.mp3" fadein 2.0
     "You decide to head to the games room."
     "It’s a larger-sized room with some moderate décor, a few square wooden tables, and even a pool table."
@@ -260,20 +262,25 @@ label gameRoom:
     unremark "If you sit next to Helen, I'm sure you'll pick it up in no time."
     nosy "Oh yes, when it comes to mahjong, there's no one better to learn from than Helen."
     nosy "She's very good."
+    show helen at center
     hl "Of course I'm good. I play to win."
+    hide helen
     "Everyone giggles. It doesn't seem like she was joking."
 
+    show helen at center
     menu:
         hl "So what do you say? Will you join us?"
         "Sure, why not?":
             hl "Good good, now that's what I like to hear."
             hl "Come sit."
+            hide helen
             "You walk your way to the table and take a seat."
             $ hl_score += 1
         "I don't know...":
             hl "What are you, a coward?"
             hl "Just come and sit down."
             mc "Y-yes ma'am."
+            hide helen
             "You shamefully waddle to your seat."
             $ hl_score -= 1
 
@@ -300,6 +307,7 @@ label helen_bad:
     return
 
 label communalLounge:
+    scene bg lounge with dissolve
     play music "audio/music/annabelle_theme.mp3" fadein 2.0
 
     #Determine the ending

@@ -12,11 +12,36 @@ define unremark = DynamicCharacter('unremark_name', what_prefix='"', what_suffix
 
 define test = DynamicCharacter('placeholder_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#454046", who_outlines=[ (1, "#000000") ])
 
+image miriam:
+    LiveComposite(
+        (625,1000),
+        (0,0), im.MatrixColor("actors/miriam/miriam_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
+        )
+
+image helen:
+    LiveComposite(
+        (450,1190),
+        (0,0), im.MatrixColor("actors/helen/helen_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
+        )
+
+image annabelle:
+    LiveComposite(
+        (625,1000),
+        (0,0), im.MatrixColor("actors/annabelle/annabelle_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
+        )
+
 image placeholder:
     LiveComposite(
         (625,1000),
         (0,0), im.MatrixColor("actors/placeholder/placeholder_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
+
+##Backgrounds
+image bg room = "backgrounds/bedroom.png"
+image bg crafts = "backgrounds/craftsRoom.png"
+image bg game = "backgrounds/gameRoom.png"
+image bg lounge = "backgrounds/communalLounge.png"
+image bg apartment = "backgrounds/apartment.png"
 
 init:
     #Current emotions
