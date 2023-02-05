@@ -25,6 +25,7 @@ label start:
 
 label intro:
     scene black
+    play music "audio/music/opening_song.mp3" fadein 2.0
     "The morning sun shines in through the blinds in your bedroom window, as it does every morning."
     "It feels a little lonely..."
     "But you've gotten used to that."
@@ -70,6 +71,7 @@ label intro:
     return
 
 label craftsRoom:
+    play music "audio/music/miriam_theme.mp3" fadein 2.0
     "You decide to head to the crafts room."
     "It's a nice cozy space, with cubbies and bins of various craft supplies."
     "There's plenty of yarn, thread, paint, paper, clay, pencils - whatever aspiring arts-and-crafters might want."
@@ -241,6 +243,7 @@ label miriam_bad:
     return
 
 label gameRoom:
+    play music "audio/music/helen_theme.mp3" fadein 2.0
     "You decide to head to the games room."
     "It’s a larger-sized room with some moderate décor, a few square wooden tables, and even a pool table."
     "You head over to a white cabinet with glass doors near the entrance."
@@ -297,7 +300,7 @@ label helen_bad:
     return
 
 label communalLounge:
-
+    play music "audio/music/annabelle_theme.mp3" fadein 2.0
 
     #Determine the ending
     if(an_score > 0):
