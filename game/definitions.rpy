@@ -7,6 +7,7 @@ define mi = DynamicCharacter('mi_name', what_prefix='"', what_suffix='"', ctc="c
 define hl = DynamicCharacter('hl_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#4F4078", who_outlines=[ (0, "#000000") ])
 define an = DynamicCharacter('an_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#CC9A96", who_outlines=[ (0, "#000000") ])
 
+define chatty = DynamicCharacter('chatty_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
 define nosy = DynamicCharacter('nosy_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
 define unremark = DynamicCharacter('unremark_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed", color="#000000", who_outlines=[ (0, "#000000") ])
 

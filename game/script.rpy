@@ -11,6 +11,7 @@ label start:
     $ hl_name = "???"
     $ an_name = "???"
 
+    $ chatty_name = "Chatty Lady"
     $ nosy_name = "Nosy Gaudy Lady"
     $ unremark_name = "Unremarkable Lady"
 
@@ -330,6 +331,31 @@ label gameRoom:
             $ hl_emotion = 'neutral'
             "You shamefully waddle to your seat."
             $ hl_score -= 1
+
+    "You sit and watch the ladies play mahjong for a while."
+    "They’re all very chatty, except the stone-cold Helen."
+    "It seems like the point of the game is to pick up or discard the tiles so you have a certain number of matching sets."
+    chatty "So, Helen, will you be sharing your ivory mahjong set with us any time soon?"
+    nosy "Yes, yes, I'm sure it's exquisite."
+    nosy "Didn't your husband buy it for you in Shanghai?"
+    show helen
+    hl "{i}Ex{/i}-husband."
+    hide helen
+    "The ladies titter with laughter. You're not sure what's funny."
+    nosy "Oh, yes, yes, that's right."
+    unremark "That set must be {i}quite{/i} an antique!"
+
+    menu:
+        "Do you collect a lot of antiques?":
+            $ interest = "antiques"
+            show helen
+            hl "I do."
+            chatty "Helen has quite a number of art pieces at home, don't you know?"
+        "Where else have you visited?":
+            $ interest = "travel"
+            show helen
+
+
 
     #Determine the ending
     if(hl_score > 0):
