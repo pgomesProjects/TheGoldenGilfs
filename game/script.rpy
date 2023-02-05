@@ -511,7 +511,7 @@ label helen_good:
     hl "I happen to have a pair of tickets to the symphony orchestra."
     hl "Quite a number of his works are on the program."
     hl "...You'd have to wear something besides that cardigan, though."
-    if(playerGender == "male"):
+    if(playerGender == "Male"):
         $ outfitName = "ducks eating bread"
     else:
         $ outfitName = "strawberries"
