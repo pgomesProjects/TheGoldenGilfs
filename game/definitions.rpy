@@ -15,19 +15,19 @@ define test = DynamicCharacter('placeholder_name', what_prefix='"', what_suffix=
 image miriam:
     LiveComposite(
         (625,1000),
-        (0,0), im.MatrixColor("actors/miriam/miriam_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
+        (0,0), im.MatrixColor("actors/miriam/miriam_%s.png"%(mi_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
 
 image helen:
     LiveComposite(
-        (450,1190),
-        (0,0), im.MatrixColor("actors/helen/helen_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
+        (450,1280),
+        (0,0), im.MatrixColor("actors/helen/helen_%s.png"%(hl_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
 
 image annabelle:
     LiveComposite(
         (625,1000),
-        (0,0), im.MatrixColor("actors/annabelle/annabelle_%s.png"%(p_emotion),im.matrix.tint(huer, hueg, hueb)),
+        (0,0), im.MatrixColor("actors/annabelle/annabelle_%s.png"%(an_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
 
 image placeholder:

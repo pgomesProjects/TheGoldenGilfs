@@ -219,6 +219,19 @@ label craftsRoom:
     "It's the bell marking the top of the hour."
     mi "Oh, goodness! I really must be going."
     mi "I just stepped out for a little bit while my pie was baking."
+    mi "Would you like to come over for a little visit, dear?"
+    mi "I'm sure we'd both be glad for the company."
+    mc "That sounds nice. I'd love to."
+
+    scene bg apartment with dissolve
+    "You walk back to Miriam's room with her."
+    "She walks a lot faster than you, but doesn't seem to mind slowing down to keep up with your bad knee."
+    "Miriam's apartment is full of rounded, comfortable furniture."
+    "There's a colorful afghan over the back of every living room chair."
+    "Three cats swarm around your feet as the two of you enter."
+    "One of them rubs itself against your shins while another sniffs you."
+    mi "Don’t mind Rufus, he's just a little nosy."
+    mi "And Blanche is such a love, isn't she?"
 
     #Determine the ending
     if(mi_score > 0):
@@ -236,10 +249,41 @@ label craftsRoom:
     return
 
 label miriam_good:
+    "She backs away from you for a second, leaving you in the crowd of cats."
+    mi "I'll be right back, dear."
+    "She shuffles away towards what must be her bedroom."
+    "You pet her cats while she's out of the room. Blanche in particular seems to like you a lot."
+    "You suddenly hear the oven timer go off. The pie must be done."
+    play sound "audio/sfx/oven_ding.wav"
+    "Before you go check on it, you hear a door swing open."
+    "Miriam comes out wearing a particularly...odd outfit."
+    stop music
+    mi "Meow."
+    "Is that...a lingerie tabby cat fursuit?"
+
+    scene black with dissolve
     tut "Miriam: Good Ending"
     return
 
 label miriam_bad:
+    "Rufus yowls and hisses at you, putting his paw on your shins."
+    "Even the other cat seems very aloof."
+    mi "Oh, my! He doesn't act like that towards anybody."
+    "The last thing you remember is a loud screech and a very painful sharp sensation."
+    stop music
+    play sound "audio/sfx/cat_screech.wav"
+    scene black with dissolve
+    "."
+    ".."
+    "..."
+    "You wake up some time later...in a hospital room?"
+    "There's a card on the bedside table."
+    "{i}Dear [playerName],{/i}"
+    "{i}I'm dreadfully sorry about your little visit. You really are sweet.{/i}"
+    "{i}Unfortunately Rufus told me you weren't to be trusted.{/i}"
+    "{i}I trust my cats more than anyone.{/i}"
+    "{i}I'm sorry.{/i}"
+    "{i}- With Love, Miriam.{/i}"
     tut "Miriam: Bad Ending"
     return
 
@@ -277,10 +321,13 @@ label gameRoom:
             "You walk your way to the table and take a seat."
             $ hl_score += 1
         "I don't know...":
+            $ hl_emotion = 'smirk'
+            show helen
             hl "What are you, a coward?"
             hl "Just come and sit down."
             mc "Y-yes ma'am."
             hide helen
+            $ hl_emotion = 'neutral'
             "You shamefully waddle to your seat."
             $ hl_score -= 1
 
