@@ -27,7 +27,7 @@ image helen:
 
 image annabelle:
     LiveComposite(
-        (625,1000),
+        (550,1280),
         (0,0), im.MatrixColor("actors/annabelle/annabelle_%s.png"%(an_emotion),im.matrix.tint(huer, hueg, hueb)),
         )
 
