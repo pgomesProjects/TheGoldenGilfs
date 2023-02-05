@@ -11,6 +11,9 @@ label start:
     $ hl_name = "???"
     $ an_name = "???"
 
+    $ nosy_name = "Nosy Gaudy Lady"
+    $ unremark_name = "Unremarkable Lady"
+
     # Define scores
     $ mi_score = 0
     $ hl_score = 0
@@ -238,7 +241,38 @@ label miriam_bad:
     return
 
 label gameRoom:
-    
+    "You decide to head to the games room."
+    "It’s a larger-sized room with some moderate décor, a few square wooden tables, and even a pool table."
+    "You head over to a white cabinet with glass doors near the entrance."
+    "The cabinet is filled with various board games, packs of playing cards, poker chip sets, and..."
+    "...a Sexy Senior Citizen Edition of {i}Monopoly{/i}?"
+    "Weird."
+    "Pulling your attention from the odd board game, you notice that the only people here right now are a group of three ladies playing what looks like mahjong."
+    "One of the ladies at the table, wearing a fuzzy and quite gaudy teal sweater notices you."
+    nosy "Hello there. Would you like to join in?"
+    "You don't know shit about mahjong."
+    mc "That sounds fun, but I don't know how to play."
+    unremark "That's okay! Why don't you just sit and watch for a game?"
+    $ hl_name = "Helen"
+    unremark "If you sit next to Helen, I'm sure you'll pick it up in no time."
+    nosy "Oh yes, when it comes to mahjong, there's no one better to learn from than Helen."
+    nosy "She's very good."
+    hl "Of course I'm good. I play to win."
+    "Everyone giggles. It doesn't seem like she was joking."
+
+    menu:
+        hl "So what do you say? Will you join us?"
+        "Sure, why not?":
+            hl "Good good, now that's what I like to hear."
+            hl "Come sit."
+            "You walk your way to the table and take a seat."
+            $ hl_score += 1
+        "I don't know...":
+            hl "What are you, a coward?"
+            hl "Just come and sit down."
+            mc "Y-yes ma'am."
+            "You shamefully waddle to your seat."
+            $ hl_score -= 1
 
     #Determine the ending
     if(hl_score > 0):

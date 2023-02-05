@@ -24,9 +24,10 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
-
 style button:
     properties gui.button_properties("button")
+    hover_sound "gui/sfx/button_hover.wav"
+    activate_sound "gui/sfx/button_click.wav"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -218,7 +219,7 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            textbutton i.caption action i.action hover_sound "gui/sfx/button_hover.wav" activate_sound "gui/sfx/button_click.wav"
 
 
 style choice_vbox is vbox
@@ -325,7 +326,7 @@ screen navigation(titleScreen):
 
         if main_menu:
             if(titleScreen):
-                button style "mainMenuButton" action Show(screen="name_input", message="Please Enter Your Name", ok_action=Function(FinishEnterName)):
+                button style "mainMenuButton" hover_sound "gui/sfx/button_hover.wav" activate_sound "gui/sfx/button_click.wav" action Show(screen="name_input", message="Please Enter Your Name", ok_action=Function(FinishEnterName)):
                     text "Find My Match!" style "mainMenuText"
                 null height 20
             else:
